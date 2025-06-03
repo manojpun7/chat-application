@@ -3,9 +3,10 @@ import "./App.css";
 import "./index.css";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Signup from "./pages/signup/Signup";
+import Signup from "./pages/signup/Register";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
+import Register from "./pages/signup/Register";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -22,7 +23,7 @@ function App() {
         />
         <Route
           path="/signup"
-          element={authUser ? <Navigate to="/" /> : <Signup />}
+          element={authUser ? <Navigate to="/" /> : <Register />}
         />
       </Routes>
       <Toaster />
