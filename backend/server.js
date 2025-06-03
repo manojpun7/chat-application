@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import cookieParser from "cookie-parser";
 // import path from "path";
 
@@ -10,14 +11,13 @@ import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
 
-const PORT = process.env.PORT || 5000;
 
+const PORT = process.env.PORT || 5000;
 // const __dirname = path.resolve(); // this is for deployment purpose
 
-dotenv.config();
 
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser()); 
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
