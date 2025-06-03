@@ -10,7 +10,6 @@ const io = new Server(server, {
   cors: {
     origin: "https://chat-application-frontend-iljs.onrender.com",
     methods: ["GET", "POST"],
-    credentials: true
   }
 });
 
