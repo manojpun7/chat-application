@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 import cookieParser from "cookie-parser";
 import path from "path";
@@ -15,7 +16,17 @@ import { app, server } from "./socket/socket.js";
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve(); // this is for deployment purpose
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "https://chat-application-frontend-iljs.onrender.com"
+];
 
+app.use(
+  cors({
+    origin: allowedOrigins, // allow all listed origins
+  })
+);
 app.use(express.json());
 app.use(cookieParser()); 
 
