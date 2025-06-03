@@ -10,7 +10,7 @@ const useGetConversations = () => {
       setLoading(true);
       try {
         
-        const res = await fetch("/api/users");
+        const res = await fetch("https://chat-application-backend-gma3.onrender.com/api/users");
         const data = await res.json();
 
 
