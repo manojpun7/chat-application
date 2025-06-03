@@ -8,15 +8,12 @@ const server = http.createServer(app);
 // ✅ Allow both local and deployed frontend origins
 const io = new Server(server, {
   cors: {
-    origin: [
-      "http://localhost:3001", // your current local frontend
-      "http://localhost:3000", // optional, if needed
-      "https://chat-application-frontend.onrender.com" // your deployed frontend (update if different)
-    ],
+    origin: "https://chat-application-frontend-iljs.onrender.com",
     methods: ["GET", "POST"],
     credentials: true
   }
 });
+
 
 const userSocketMap = {};
 
